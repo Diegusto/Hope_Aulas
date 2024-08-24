@@ -1,0 +1,10 @@
+uses basico;
+dec soma_com_10 : num -> num;
+dec subtrai_2 : num -> num;
+dec x_pi_em_5 : num -> num;
+
+--- soma_com_10 x <= x + 10;
+
+--- subtrai_2 x <= x - 2;
+
+--- x_pi_em_5 x <= x * x_pi / 5;

@@ -1,0 +1,26 @@
+dec adicao : num # num -> num;
+dec par : num -> truval;
+dec par' : num -> truval;
+dec impar : num -> truval;
+dec impar' : num -> truval;
+dec impar'' : num -> truval;
+dec valor : num -> num;
+
+--- adicao (0, y) <= y;
+--- adicao (x, 0) <= x;
+--- adicao (0, 0) <= 9999;
+--- adicao (x, y) <= x + y;
+
+--- par n <= if n mod 2 = 0 then true else false;
+
+--- par' n <= n mod 2 = 0;
+
+--- impar n <= if n mod 2 /= 0 then true else false;
+
+--- impar' n <= n mod 2 /= 0;
+
+--- impar'' n <= not (par(n));
+
+--- valor 0 <= 0;
+--- valor 1 <= 2;
+--- valor n <= if n > 1 and n < 9 then n * 5 else n / 5;

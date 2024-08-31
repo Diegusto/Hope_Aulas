@@ -1,0 +1,27 @@
+uses basico, fluxo;
+dec div84 : num -> truval;
+dec classif : num # num -> num # num;
+dec extenso : num -> list char;
+dec calculadora : num # num # num -> num;
+
+--- div84 n <= n mod 8 = 4;
+
+--- classif (x, y) <= if x < y then (x, y) else (y, x);
+
+--- extenso 0 <= "zero";
+--- extenso 1 <= "um";
+--- extenso 2 <= "dois";
+--- extenso 3 <= "tres";
+--- extenso 4 <= "quatro";
+--- extenso 5 <= "cinco";
+--- extenso 6 <= "seis";
+--- extenso 7 <= "sete";
+--- extenso 8 <= "oito";
+--- extenso 9 <= "nove";
+--- extenso _ <= "valor invalido";
+
+--- calculadora (x, y, 0) <= x + y;
+--- calculadora (x, y, 1) <= x - y;
+--- calculadora (x, y, 10) <= x * y;
+--- calculadora (x, y, 11) <= x / y;
+--- calculadora (x, y, _) <= error ("entrou errado");

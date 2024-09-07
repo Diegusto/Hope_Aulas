@@ -1,0 +1,14 @@
+uses fluxo, basico;
+dec fat1 : num -> num;
+dec fib1 : num -> num;
+dec potencia : num # num -> num;
+
+--- fat1 0 <= 1;
+--- fat1 n <= n * fat1 (n - 1);
+
+--- fib1 0 <= 0;
+--- fib1 1 <= 1;
+--- fib1 n <= fib1 (n - 1) + fib1 (n - 2);
+
+--- potencia (n, 0) <= 1;
+--- potencia (b, e) <= b * potencia (b, e - 1);

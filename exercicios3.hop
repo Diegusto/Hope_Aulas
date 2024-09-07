@@ -1,0 +1,60 @@
+uses recursao;
+dec prodIntervalo1 : num # num -> num;
+dec resto : num # num -> num;
+dec resto1 : num # num -> num;
+dec somaCubos : num -> num;
+dec contaPares : num -> num;
+dec contaPares2 : num -> num;
+dec contaPares3 : num -> num;
+dec contaPares4 : num -> num;
+dec contaPares5 : num -> num;
+dec somaDigitos : num -> num;
+dec somaDigitos2 : num -> num;
+dec somaDigitos3 : num -> num;
+dec PrimeiroDigito : num -> num;
+dec zeros : num -> num;
+dec somaQuadrados : num -> num;
+
+--- prodIntervalo1 (x, y) <= if x > y then 1 else x * prodIntervalo1 (x + 1, y);
+
+--- resto (p, q) <= p mod q;
+--- resto (p, q) <= if p < q then p else resto (p - q, q);
+
+--- resto1 (p, q) <= if p < q then p else resto (p - q, q);
+
+--- somaCubos 0 <= 0;
+--- somaCubos n <= pow (n, 3) + somaCubos (n - 1);
+
+--- contaPares 0 <= 0;
+--- contaPares n <= if n mod 2 = 0 then 1 + contaPares (n - 1) else 0;
+--- contaPares 0 <= 0;
+--- contaPares 1 <= 1;
+--- contaPares n <= if n mod 2 = n then 1 + contaPares (n - 1) else 0;
+
+--- contaPares3 0 <= 0;
+--- contaPares3 1 <= 1;
+--- contaPares3 n <= if n mod 2 = n then n + contaPares (n - 1) else 0;
+--- contaPares3 n <= if n mod 2 = 0 then n + contaPares (n - 1) else 0;
+
+--- contaPares4 0 <= 0;
+--- contaPares4 1 <= 1;
+--- contaPares4 n <= if n mod 2 = 0 then n + contaPares (n - 1) else 0;
+
+--- contaPares5 0 <= 0;
+--- contaPares5 1 <= 1;
+--- contaPares5 n <= if n mod 2 = 0 then contaPares (n - 1) + 1 else contaPares (n - 1);
+
+--- somaDigitos 0 <= 0;
+--- somaDigitos n <= n mod 10 + somaDigitos (n div 10);
+
+--- somaDigitos2 n <= if n mod 10 > 0 then n mod 10 + somaDigitos2 (n div 10) else 0;
+
+--- somaDigitos3 n <= if not (n = 0) then n mod 10 + somaDigitos3 (n div 10) else 0;
+
+--- PrimeiroDigito n <= if n < 10 then n else PrimeiroDigito (n div 10);
+
+--- zeros 0 <= 1;
+--- zeros n <= if n < 10 then 0 else if n mod 10 = 0 then 1 + zeros (n div 10) else zeros (n div 10);
+
+--- somaQuadrados 0 <= 0;
+--- somaQuadrados n <= pow (n, 2) + somaQuadrados (n - 1);

@@ -1,0 +1,119 @@
+uses recursao;
+dec contaDigitos : num -> num;
+dec contaDigitos2 : num -> num;
+dec somaDigitos : num -> num;
+dec mediaDigitos : num -> num;
+dec mediaDigitos3 : num -> num;
+dec collatz : num -> num;
+dec calc : num -> num;
+dec calc2 : num -> num;
+dec exp : num # num -> num;
+dec calc3 : num -> num;
+dec somaFaixa : num # num -> num;
+dec somaFaixa2 : num # num -> num;
+dec dec2bin : num -> num;
+dec dec2bin2 : num -> num;
+dec dec2bin3 : num -> num;
+dec minhaSoma : num # num -> num;
+dec sucessor : num -> num;
+dec antecessor : num -> num;
+dec produto : num # num -> num;
+dec produto2 : num # num -> num;
+dec fatbase : num # num -> num;
+dec fat2 : num -> num;
+dec fbs : num # num # num -> num;
+dec fib2 : num -> num;
+dec par : num -> num;
+dec par2 : num -> truval;
+dec base2_1 : num -> num;
+dec base2x : num # num -> num;
+dec base2_2 : num -> num;
+dec vezesbase : num # num # num -> num;
+dec quantasVezes : num # num -> num;
+
+--- contaDigitos n <= if n mod 10 > 1 then contaDigitos (n div 10) + 1 else 0;
+
+--- contaDigitos2 n <= if n mod 10 > 1 then contaDigitos2 (n div 10) + 1 else 1;
+
+--- somaDigitos 0 <= 0;
+--- somaDigitos n <= n mod 10 + somaDigitos (n div 10);
+
+--- mediaDigitos n <= somaDigitos n / contaDigitos n;
+
+--- mediaDigitos3 n <= somaDigitos n / contaDigitos2 n;
+
+--- collatz 1 <= 1;
+--- collatz n <= if abs n mod 2 = 0 then collatz (abs n div 2) else collatz (abs n * 3 + 1);
+
+--- calc 0 <= 0;
+--- calc n <= 1.5 + calc (n - 1) / 2;
+
+--- calc2 n <= (1.5 + calc2 (n - 1)) / 2;
+
+--- exp (x, 0) <= 1;
+--- exp (x, n) <= x * exp (x, n - 1);
+
+--- calc3 0 <= 0;
+--- calc3 n <= (1.5 + calc2 (n - 1)) / 2;
+
+--- somaFaixa (n, m) <= if n < m then 0 else if n = m then m else if n > m then n + m else 0;
+
+--- somaFaixa2 (n, m) <= if n < m then 0 else if n = m then m else m + somaFaixa2 (m, n - 1);
+
+--- dec2bin 0 <= 0;
+--- dec2bin n <= n mod 2 + dec2bin (n div 2);
+--- dec2bin 0 <= 0;
+
+--- dec2bin2 0 <= 0;
+--- dec2bin2 n <= 10 * dec2bin (n div 2) + n mod 2;
+
+--- dec2bin3 0 <= 0;
+--- dec2bin3 n <= 10 * dec2bin3 (n div 2) + n mod 2;
+
+--- minhaSoma (0, b) <= b;
+--- minhaSoma (a, 0) <= a;
+--- minhaSoma (0, 0) <= 0;
+--- minhaSoma (a, b) <= minhaSoma (sucessor a, antecessor b);
+
+--- sucessor n <= n + 1;
+
+--- antecessor n <= n - 1;
+
+--- produto (x, 0) <= 0;
+--- produto (0, y) <= 0;
+--- produto (0, 0) <= 0;
+--- produto (x, y) <= produto (x + x, y - 1);
+
+--- produto2 (0, 0) <= 0;
+--- produto2 (0, y) <= 0;
+--- produto2 (x, 0) <= 0;
+--- produto2 (x, y) <= x + produto (x, y - 1);
+
+--- fatbase (0, x) <= x;
+--- fatbase (n, x) <= fatbase (n - 1, n * x);
+
+--- fat2 n <= fatbase (n, 1);
+
+--- fbs (0, anter, atual) <= anter;
+--- fbs (1, anter, atual) <= atual;
+--- fbs (2, anter, atual) <= atual + anter;
+--- fbs (n, anter, atual) <= fbs (n - 1, atual, anter + atual);
+
+--- fib2 n <= fbs (n, 0, 1);
+
+--- par2 0 <= true;
+--- par2 n <= not (par2 (n - 1));
+
+--- base2_1 0 <= 1;
+--- base2_1 n <= 2 * base2_1 (n - 1);
+
+--- base2x (0, x) <= x;
+--- base2x (n, x) <= base2x (n - 1, x * 2);
+
+--- base2_2 n <= base2x (n, 1);
+
+--- vezesbase (k, 0, x) <= 0;
+--- vezesbase (0, 0, x) <= 1;
+--- vezesbase (k, n, x) <= if n mod 10 = k then vezesbase (k, n div 10, x + 1) else vezesbase (k, n div 10, x);
+
+--- quantasVezes (k, n) <= vezesbase (k, n, 0);

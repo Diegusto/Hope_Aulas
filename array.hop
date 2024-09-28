@@ -1,0 +1,25 @@
+dec lst : num -> list num;
+dec cabeca : list num -> num;
+dec cauda : list num -> list num;
+dec segundoElemento : list num -> num;
+dec ultimo : list num -> num;
+dec arranjo : list num -> list num;
+
+--- lst 0 <= [];
+--- lst n <= n :: lst (n - 1);
+
+--- cabeca [] <= error ("Lista vazia!");
+--- cabeca (x :: xs) <= x;
+
+--- cauda [] <= error ("Lista vazia!");
+--- cauda (x :: xs) <= xs;
+
+--- segundoElemento (x :: xs) <= cabeca (cauda (x :: xs));
+
+--- ultimo [] <= error ("Lista vazia");
+--- ultimo ([x]) <= x;
+--- ultimo (x :: xs) <= ultimo xs;
+
+--- arranjo [] <= error ("Lista vazia");
+--- arranjo ([x]) <= [];
+--- arranjo (x :: xs) <= x :: arranjo xs;

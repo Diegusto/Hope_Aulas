@@ -1,0 +1,63 @@
+uses array;
+dec elem2 : list num -> num;
+dec tamanho : list num;
+dec tamanho2 : list num -> num;
+dec mult2 : list num -> list num;
+dec elempnt : list num -> num;
+dec duplique : list num -> list num;
+dec somalist : list num -> num;
+dec somalist2 : list num -> num;
+dec intervalo : num # num -> list num;
+dec inverte : list num -> list num;
+dec inverte' : list num -> list num;
+dec poe_final : num # list num -> list num;
+dec mult : list num -> list num;
+dec mult3 : list num -> num;
+dec mult4 : list num -> num;
+dec inverte'' : list num -> list num;
+dec invertBas : list num # list num -> list num;
+
+--- elem2 [] <= error ("Lista vazia!");
+--- elem2 ([x]) <= error ("Poucos elementos!");
+--- elem2 (a :: b :: bs) <= b;
+
+--- tamanho2 [] <= 0;
+--- tamanho2 (x :: xs) <= 1 + tamanho2 xs;
+
+--- mult2 [] <= [];
+--- mult2 (x :: xs) <= x * 2 :: mult2 xs;
+
+--- elempnt [] <= error ("Lista vazia");
+--- elempnt ([x]) <= error ("Poucos elementos");
+--- elempnt (x :: xs) <= if tamanho2 xs = 1 then x else elempnt xs;
+
+--- duplique [] <= [];
+--- duplique (x :: xs) <= x :: x :: duplique xs;
+
+--- somalist (x :: xs) <= x + somalist xs;
+
+--- somalist2 [] <= 0;
+--- somalist2 (x :: xs) <= x + somalist xs;
+
+--- intervalo (m, n) <= if m > n then [] else m :: intervalo (m + 1, n);
+
+--- inverte [] <= [];
+--- inverte (x :: xs) <= inverte xs <> [x];
+
+--- inverte' [] <= [];
+--- inverte' xs <= ultimo xs :: inverte' (arranjo xs);
+
+--- poe_final (n, x :: xs) <= (x :: xs) <> [n];
+
+--- mult [] <= [];
+
+--- mult3 [] <= 0;
+--- mult3 (x :: xs) <= x * mult3 xs;
+
+--- mult4 [] <= 1;
+--- mult4 (x :: xs) <= x * mult4 xs;
+
+--- inverte'' xs <= invertBas (xs, []);
+
+--- invertBas ([], ys) <= ys;
+--- invertBas (x :: xs, ys) <= invertBas (xs, x :: ys);

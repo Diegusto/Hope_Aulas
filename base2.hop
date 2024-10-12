@@ -1,0 +1,28 @@
+uses base1;
+dec multiplo : num # num -> truval;
+dec divisor : num -> list num;
+dec listamult : list num # num -> list num;
+dec divisor2 : num -> list num;
+dec checa_primo : num -> truval;
+dec ehPrimoAux : num # num -> truval;
+dec ehPrimo : num -> truval;
+dec lprimos2 : num -> list num;
+
+--- multiplo (n, m) <= if n mod m = 0 then true else false;
+
+--- divisor n <= comp (faixa (1, n, 1), lambda d => multiplo (n, d));
+
+--- listamult ([], n) <= [];
+--- listamult (x :: xs, n) <= if n mod x = 0 then x :: listamult (xs, n) else listamult (xs, n);
+
+--- divisor2 n <= listamult (faixa (1, n, 1), n);
+
+--- checa_primo 1 <= false;
+--- checa_primo 2 <= true;
+--- checa_primo n <= if tamanho2 (listamult (faixa (2, n - 1, 1), n)) > 0 then false else true;
+
+--- ehPrimoAux (p, q) <= if pow (q, 2) > p then true else if p mod q = 0 then false else ehPrimoAux (p, q + 1);
+
+--- ehPrimo p <= if p < 2 then false else ehPrimoAux (p, 2);
+
+--- lprimos2 n <= if n < 2 then [] else if ehPrimo (n - 1) then lprimos2 (n - 1) <> [n - 1] else lprimos2 (n - 1);

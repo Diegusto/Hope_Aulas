@@ -1,0 +1,96 @@
+uses base2, exercicios;
+dec inverte : list num -> list num;
+dec divisores : num -> list num;
+dec produtolst : list num -> list num;
+dec produtolst1 : list num -> num;
+dec faixa_primo : num # num -> list num;
+dec multlstn : num # list num -> list num;
+dec tabuada : num -> list num;
+dec somalist : list num -> num;
+dec amigos : num # num -> truval;
+dec amigos2 : num # num -> truval;
+dec abundante : num -> truval;
+dec abundante2 : num -> truval;
+dec div84 : num -> truval;
+dec listdiv84 : num -> list num;
+dec multip_faixa : num # num -> num;
+dec deficiente : num -> truval;
+dec perfeito : num -> truval;
+dec primeiros_enquanto : (num -> truval) # list num -> list num;
+dec primeiros_enquanto2 : (num -> truval) # list num -> list num;
+dec suspende_enquanto : (num -> truval) # list num -> list num;
+dec suspende_enquanto2 : (num -> truval) # list num -> list num;
+dec primeiros : num # list num -> list num;
+dec itera : (num -> truval) # num -> list num;
+dec itera2 : (num -> truval) # num -> list num;
+dec itera3 : (num -> num) # num -> list num;
+dec itera4 : (num -> num) # num -> list num;
+dec itera5 : (num -> num) # num -> list num;
+dec itera6 : (num -> num) # num -> list num;
+
+--- inverte [] <= [];
+--- inverte (x :: xs) <= inverte xs <> [x];
+
+--- divisores 0 <= [];
+--- divisores n <= inverte (comp (faixa (1, n + 1, 1), lambda x => multiplo (n, x)));
+
+--- produtolst1 [] <= 0;
+--- produtolst1 ([x]) <= x;
+--- produtolst1 (x :: xs) <= x * produtolst1 xs;
+
+--- faixa_primo (0, m) <= [];
+--- faixa_primo (n, 0) <= [];
+--- faixa_primo (0, 0) <= [];
+--- faixa_primo (n, m) <= comp (faixa (n, m, 1), lambda x => checa_primo x);
+
+--- multlstn (n, []) <= [];
+--- multlstn (n, x :: xs) <= n * x :: multlstn (n, xs);
+
+--- tabuada 0 <= [];
+--- tabuada n <= multlstn (n, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+--- somalist [] <= 0;
+--- somalist (x :: xs) <= x + somalist xs;
+
+--- amigos (x, y) <= if somalist (divisores x) = somalist (divisores y) then true else false;
+
+--- amigos2 (x, y) <= somalist (divisores x) - x = y and somalist (divisores y) - y = x;
+
+--- abundante x <= somalist (divisores x) - x > x;
+
+--- abundante2 n <= somalist (comp (faixa (1, n + 1, 1), lambda x => multiplo (n, x))) - n > n;
+
+--- div84 n <= if n mod 8 = 4 then true else false;
+
+--- listdiv84 n <= comp (faixa (1, n, 1), lambda x => div84 x);
+
+--- multip_faixa (x, y) <= produtolst1 (faixa (x, y, 1));
+
+--- deficiente n <= somalist (comp (faixa (1, n + 1, 1), lambda x => multiplo (n, x))) - n < n;
+
+--- perfeito n <= somalist (comp (faixa (1, n + 1, 1), lambda x => multiplo (n, x))) - n = n;
+
+--- primeiros_enquanto (qualificador, []) <= [];
+--- primeiros_enquanto (qualificador, x :: xs) <= if qualificador x then x :: primeiros_enquanto (qualificador, xs) else primeiros_enquanto (qualificador, []);
+
+--- primeiros_enquanto2 (qualificador, []) <= [];
+
+--- suspende_enquanto (qualificador, []) <= [];
+--- suspende_enquanto (qualificador, x :: xs) <= if qualificador x then suspende_enquanto (qualificador, xs) else x :: suspende_enquanto (qualificador, xs);
+
+--- suspende_enquanto2 (qualificador, []) <= [];
+--- suspende_enquanto2 (qualificador, x :: xs) <= if qualificador x then suspende_enquanto2 (qualificador, xs) else x :: xs;
+
+--- primeiros (0, _) <= [];
+--- primeiros (_, []) <= [];
+--- primeiros (n, x :: xs) <= x :: primeiros (n - 1, xs);
+
+--- itera (qualificador, n) <= if qualificador n then n :: itera (qualificador, n + 1) else [];
+
+--- itera3 (qualificador, n) <= qualificador n :: itera3 (qualificador, qualificador n);
+
+--- itera4 (qualificador, n) <= qualificador n :: itera3 (qualificador, n);
+
+--- itera5 (qualificador, n) <= qualificador n :: itera5 (qualificador, n);
+
+--- itera6 (qualificador, n) <= n :: itera6 (qualificador, qualificador n);

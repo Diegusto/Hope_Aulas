@@ -1,0 +1,50 @@
+uses base2;
+dec membro : num # list num -> truval;
+dec juncao : list num # list num -> list num;
+dec unico : list num -> list num;
+dec insira : num # list num -> list num;
+dec insira2 : num # list num -> list num;
+dec insira3 : num # list num -> list num;
+dec classifica : list num -> list num;
+dec uniao : list num # list num -> list num;
+dec interseccao : list num # list num -> list num;
+dec diferenca : list num # list num -> list num;
+dec sub_lista : list num # list num -> truval;
+dec igualdade : list num # list num -> truval;
+
+--- membro (n, []) <= false;
+--- membro (n, x :: xs) <= if n = x then true else membro (n, xs);
+
+--- juncao ([], []) <= [];
+--- juncao (a, []) <= a;
+--- juncao ([], b) <= b;
+--- juncao (a :: ax, b) <= a :: juncao (ax, b);
+
+--- unico [] <= [];
+--- unico (x :: xs) <= if membro (x, xs) then unico xs else x :: unico xs;
+
+--- insira (n, x :: xs) <= if n =< x then n :: x :: xs else x :: insira (n, xs);
+
+--- insira2 (n, []) <= [n];
+--- insira2 (n, x :: xs) <= if n =< x then n :: x :: xs else x :: insira (n, xs);
+
+--- insira3 (n, []) <= [n];
+--- insira3 (n, x :: xs) <= if n =< x then n :: x :: xs else x :: insira3 (n, xs);
+
+--- classifica [] <= [];
+--- classifica (x :: xs) <= insira3 (x, classifica xs);
+
+--- uniao (a, b) <= classifica (unico (juncao (a, b)));
+
+--- interseccao (a, []) <= [];
+--- interseccao ([], b) <= [];
+--- interseccao (a, x :: b) <= if membro (x, a) then x :: interseccao (a, b) else interseccao (a, b);
+
+--- diferenca (a, []) <= a;
+--- diferenca ([], b) <= [];
+--- diferenca (a :: ax, b) <= if membro (a, b) then diferenca (ax, b) else a :: diferenca (ax, b);
+
+--- sub_lista ([], ys) <= true;
+--- sub_lista (x :: xs, ys) <= if membro (x, ys) then sub_lista (xs, ys) else false;
+
+--- igualdade (a, b) <= sub_lista (a, b) and sub_lista (b, a);
